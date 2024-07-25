@@ -1,0 +1,33 @@
+package demo1;
+import java.util.*;
+public class pancard{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your name:");
+        String name=sc.next();
+
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String numeric = "0123456789";
+        String alphanumeric = alphabet + numeric;
+        StringBuilder sb = new StringBuilder();
+        Random r =new Random();
+
+        for(int i=0; i<4; i++){
+            int index = r.nextInt(alphabet.length());
+            char randomchar = alphabet.charAt(index);
+            sb.append(randomchar);
+        }
+        sb.append(name.charAt(0));
+
+        for(int i=0; i<4; i++){
+            int index = r.nextInt(numeric.length());
+            char randomchar = numeric.charAt(index);
+            sb.append(randomchar);
+        }
+        int index = r.nextInt(alphanumeric.length());
+        char randomchar = alphanumeric.charAt(index);
+        sb.append(randomchar);
+
+        System.out.println("Generated PAN Number:"+ sb.toString());
+    }
+}
